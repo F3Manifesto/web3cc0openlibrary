@@ -486,6 +486,9 @@ export default function Home() {
             <li>
               <a href="https://www.weloveguac.org/" target= "_blank" rel="noreferrer">Buy the Dip</a>
             </li>
+               <li>
+              <a href="https://twitter.com/goodmindsnft" target= "_blank" rel="noreferrer">Good Minds</a>
+            </li>
           </ul>
         </section>
       </main>
