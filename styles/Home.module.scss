@@ -117,13 +117,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2;
+  z-index: 1;
   transform: translate(calc(-50%), calc(-50%));
 }
 
 .sliderBody {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   background: rgba(0, 0, 0, 0.75);
   padding: 1rem;
@@ -137,6 +137,7 @@
   font-family: Lemon Milk;
   font-style: normal;
   font-weight: normal;
+  width: 80%;
   font-size: 12px;
   line-height: 16px;
   display: flex;
