@@ -6,8 +6,28 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.scss";
 import Audio from "../components/Audio";
+import Index from "../components/Index"
+import { useRouter } from "next/router";
+import Link from "next/link";
+
 
 export default function Home() {
+  const router = useRouter();
+  const { query } = useRouter();
+
+
+  const handleClick = (e) => {
+    const curr = e.target.id;
+
+    setProjectsText(getProjectsText(curr));
+
+    router.push(`/projects?category=${curr}`);
+  };
+
+
+  // above 
+
+
   const [images1, setImages1] = useState([]);
   const [images2, setImages2] = useState([]);
   const [images3, setImages3] = useState([]);
@@ -272,8 +292,11 @@ export default function Home() {
           ))}
         </section>
 
-
         <section className={styles.section4}>
+        <Index></Index>
+        </section>
+
+        {/* <section className={styles.section4}>
           <h1 className={styles.title}>Web3 CC0 Index</h1>
           <ul>
             <li>
@@ -493,10 +516,10 @@ export default function Home() {
               <a href="https://linktr.ee/mt.chicken" target= "_blank" rel="noreferrer">Mt.Chicken</a>
             </li>
           </ul>
-        </section>
+        </section> */}
       </main>
 
       <Footer />
     </div>
-  );
+  )
 }

@@ -126,7 +126,8 @@
   z-index: 1;
   width: 100%;
   background: rgba(0, 0, 0, 0.75);
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -205,7 +206,8 @@
  // padding: 4vw 7.5vw;
   width: 100%;
   padding-bottom: 100px ;
-  padding-top: 100px ;
+  padding-top: 15rem ;
+
 
   .title {
     font-family: NewYork;
@@ -217,9 +219,66 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    margin: 0;
+    margin-top: 3rem;
     color: #4e4aff;
   }
+
+
+
+  body {
+    min-height: 100vh;
+    background-color: #fafafa;
+  }
+  
+  .container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+  
+  .heading {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    padding: 3.5rem 0;
+    color: #1a1a1a;
+  }
+  
+  .heading span {
+    display: block;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+  }
+  
+  .galleryItem {
+    /* Minimum width of 24rem and grow to fit available space */
+    flex: 1 0 24rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+  }
+  
+  .galleryImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+  }
+  
+  .galleryImage:hover {
+    transform: scale(1.15);
+  }
+
+
 
   ul {
     padding: 20px;
@@ -275,6 +334,39 @@
 
 .section5 {
   width: 100%;
-  height: 100px;
+  height: 0px;
   background: #ffef62;
+}
+
+.imageMain {
+  position: absolute;
+  display: flex;
+  background-image: linear-gradient(0deg, rgb(0 0 0 / 70%), transparent);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+
+  padding-bottom: 0.5rem;
+
+  box-sizing: border-box;
+  border-width: 0;
+}
+
+.columns {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid;
+  gap: 1.25rem;
+  max-width: 48rem;
+}
+
+.projectImage {
+  width: 3rem;
+  height: 3rem;
 }
