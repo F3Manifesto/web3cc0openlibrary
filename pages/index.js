@@ -54,10 +54,6 @@ export default function Home() {
     { name: "Misc", category: "Misc" },
 ];
 
-  
-
-  
-
 
   const [images1, setImages1] = useState([]);
   const [images2, setImages2] = useState([]);
@@ -324,6 +320,8 @@ export default function Home() {
         </section>
 
         <section className={styles.section4}>
+
+        <h1 className={styles.titlecc0}>Web3 CC0 Index</h1>
 
 
         <Button button={buttons} filter={filter} />

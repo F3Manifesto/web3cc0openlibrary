@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import ProjectData from "../../pages/api/projects.json"
 
+
 const Item = ({ ProjectData }) => {
 
 
@@ -26,9 +27,6 @@ const Item = ({ ProjectData }) => {
       <section className={styles.section4}>
         <div className={styles.container}>
 
-        <h1 className={styles.title}>Web3 CC0 Index</h1>
-
-    
 
           <div className={styles.gallery}>
           {
