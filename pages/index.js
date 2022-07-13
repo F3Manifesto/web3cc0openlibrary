@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Head from "next/head";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -6,26 +6,57 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.scss";
 import Audio from "../components/Audio";
-import Index from "../components/Index"
+import Item from "../components/Item/item"
 import { useRouter } from "next/router";
 import Link from "next/link";
+import projects from "./projects"
+import Button from "../components/Button"
+
+
+const allCategories = ['All', ...new Set(projects.map(project => project.category))];
+
+console.log(allCategories);
 
 
 export default function Home() {
-  const router = useRouter();
-  const { query } = useRouter();
 
 
-  const handleClick = (e) => {
-    const curr = e.target.id;
+  //other filter
+  const [ ProjectData, setMenuProjects ] = useState(projects);
+  const [ buttons, setButtons ] = useState(allCategories);
 
-    setProjectsText(getProjectsText(curr));
+  const filter = (button) =>{
 
-    router.push(`/projects?category=${curr}`);
-  };
+    if(button === 'All'){
+      setMenuProjects(projects);
+      return;
+    }
+
+    const filteredData = projects.filter(project => project.category ===  button);
+    setMenuProjects(filteredData)
+  }
 
 
-  // above 
+  var defaultProjects = [
+    { name: "All", category: "All" },
+    { name: "NFTs", category: "NFTs" },
+    { name: "Protocol", category: "Protocol/Ecosystem" },
+    { name: "PFP", category: "PFP" },
+    { name: "DeFi", category: "DeFi" },
+    { name: "Gaming", category: "Gaming" },
+    { name: "Metaverse", category: "Metaverse" },
+    { name: "Music", category: "Music" },
+    { name: "Web3 Fashion", category: "Fashion" },
+    { name: "Web3 Models", category: "Modeling" },
+    { name: "Publishing", category: "Publishing" },
+    { name: "Recreational", category: "Recreational" },
+    { name: "Development", category: "Dev" },
+    { name: "Misc", category: "Misc" },
+];
+
+  
+
+  
 
 
   const [images1, setImages1] = useState([]);
@@ -293,230 +324,15 @@ export default function Home() {
         </section>
 
         <section className={styles.section4}>
-        <Index></Index>
-        </section>
 
-        {/* <section className={styles.section4}>
-          <h1 className={styles.title}>Web3 CC0 Index</h1>
-          <ul>
-            <li>
-              <a href="https://www.cryptoadz.io/" target= "_blank" rel="noreferrer">Cryptoadz</a>
-            </li>
-            <li>
-              <a href="https://www.blitmap.com/" target= "_blank" rel="noreferrer">Blitmap</a>
-            </li>
-            <li>
-              <a href="https://nouns.wtf/" target= "_blank" rel="noreferrer">Nouns</a>
-            </li>
-            <li>
-              <a href="https://opensea.io/collection/8megs" target= "_blank" rel="noreferrer">8megs</a>
-            </li>
-            <li>
-              <a href="https://docs.f3manifesto.xyz/" target= "_blank" rel="noreferrer">F₃Manifesto</a>
-            </li>
-            <li>
-              <a href="https://technomorph.gitbook.io/technomorph/overv1ew/intro" target= "_blank" rel="Techn0m0rph">Techn0m0rph</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/HimeXRealm" target= "_blank" rel="HimeX">HimeX</a>
-            </li>
-            <li>
-              <a href="https://blitnauts.blitmap.com/" target= "_blank" rel="noreferrer">Blitnauts</a>
-            </li>
-            <li>
-              <a href="https://www.chainrunners.xyz/faq" target= "_blank" rel="noreferrer">Chain Runners</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/heroesnftcollection" target= "_blank" rel="noreferrer">Merlin the Blue</a>
-            </li>
-            <li>
-              <a href="http://digitalax.xyz/" target= "_blank" rel="noreferrer">DIGITALAX</a>
-            </li>
-            <li>
-              <a href="designers.digitalax.xyz/" target= "_blank" rel="noreferrer">Global Designer Network</a>
-            </li>
-            <li>
-              <a href="https://models.digitalax.xyz/" target= "_blank" rel="noreferrer">Global Models Syndicate</a>
-            </li>
-            <li>
-              <a href="https://digifizzy.xyz/" target= "_blank" rel="noreferrer">DIGIFIZZY</a>
-            </li>
-            <li>
-              <a href="https://www.arpeggi.io/" target= "_blank" rel="noreferrer">Arpeggi Labs</a>
-            </li>
-            <li>
-              <a href="https://opensea.io/collection/larva-lads" target= "_blank" rel="noreferrer">Larva Lads</a>
-            </li>
-            <li>
-              <a href="https://opensea.io/collection/uma-no-copyright" target= "_blank" rel="noreferrer">UMA NO COPYRIGHT</a>
-            </li>
-            <li>
-              <a href="https://opensea.io/collection/mfers" target= "_blank" rel="noreferrer">mfers</a>
-            </li>
-            <li>
-              <a href="https://hyperlootproject.com/" target= "_blank" rel="noreferrer">Hyperloot</a>
-            </li>
-            <li>
-              <a href="https://www.lootproject.com/" target= "_blank" rel="noreferrer">Loot</a>
-            </li>
-            <li>
-              <a href="https://xmfers.com/" target= "_blank" rel="noreferrer">xmfers</a>
-            </li>
-            <li>
-              <a href="https://tubbycats.xyz/home" target= "_blank" rel="noreferrer">Tubby Cats</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/cryptostellas" target= "_blank" rel="noreferrer">CryptoStellas</a>
-            </li>
-            <li>
-              <a href="http://nounpunks.com/" target= "_blank" rel="noreferrer">NounPunks</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/3Mfer" target= "_blank" rel="noreferrer">3Mfers</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/punkforce" target= "_blank" rel="noreferrer">PunkForce</a>
-            </li>
-            <li>
-              <a href="https://www.chromacats.com/" target= "_blank" rel="noreferrer">Chroma Cats</a>
-            </li>
-            <li>
-              <a href="https://gnars.wtf/" target= "_blank" rel="noreferrer">Gnars</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/kaizennft" target= "_blank" rel="noreferrer">Kaizan</a>
-            </li>
-            <li>
-              <a href="https://opensea.io/collection/derage" target= "_blank" rel="noreferrer">Derage</a>
-            </li>
-            <li>
-              <a href="https://solo.to/supernormal" target= "_blank" rel="noreferrer">SuperNormal</a>
-            </li>
-            <li>
-              <a href="https://www.monfter.com/" target= "_blank" rel="noreferrer">Monfters Club</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/HOWLERZNFT" target= "_blank" rel="noreferrer">HOWLERZ</a>
-            </li>
-            <li>
-              <a href="https://www.cryptodickbutts.com/" target= "_blank" rel="noreferrer">CryptoDickbutts</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/TheBoanez" target= "_blank" rel="noreferrer">Boanez</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/CrypToadettez" target= "_blank" rel="noreferrer">CrypToadettez</a>
-            </li>
-            <li>
-              <a href="https://www.worldofnoun.com/" target= "_blank" rel="noreferrer">World of Noun</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/D3ELD3" target= "_blank" rel="noreferrer">PEPEPALS</a>
-            </li>
-            <li>
-              <a href="https://touns.wtf/" target= "_blank" rel="noreferrer">Tounz</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/thenoadz" target= "_blank" rel="noreferrer">Noadz</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/Greta_gremplin" target= "_blank" rel="noreferrer">Greta Mash-up Club</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/theboneys" target= "_blank" rel="noreferrer">The Boneys</a>
-            </li>
-            <li>
-              <a href="https://www.croakz.io/" target= "_blank" rel="noreferrer">CROAKZ</a>
-            </li>
-            <li>
-              <a href="https://ricracequestrianclub.com/" target= "_blank" rel="noreferrer">Ric Rac Equestrian Club</a>
-            </li>
-            <li>
-              <a href="https://wnd.game/" target= "_blank" rel="noreferrer">Wizards and Dragons</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/_gradis_" target= "_blank" rel="noreferrer">Gradis</a>
-            </li>
-            <li>
-              <a href="https://nounsoup.wtf/" target= "_blank" rel="noreferrer">Noun Soup</a>
-            </li>
-            <li>
-              <a href="https://swampcatz.com/" target= "_blank" rel="noreferrer">SwampCatz</a>
-            </li>
-            <li>
-              <a href="https://www.larvacucks.xyz/" target= "_blank" rel="noreferrer">Larva Cucks</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/gh0stlygh0sts" target= "_blank" rel="noreferrer">Gh0stly Gh0sts</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/racc0ons" target= "_blank" rel="noreferrer">racc0ons</a>
-            </li>
-            <li>
-              <a href="https://fruglys.com/" target= "_blank" rel="noreferrer">FRUGLYS</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/MFERZ69" target= "_blank" rel="noreferrer">MFERZ</a>
-            </li>
-            <li>
-              <a href="https://smowl.xyz/" target= "_blank" rel="noreferrer">SMOWL</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/stonednouns" target= "_blank" rel="noreferrer">Stoned Nouns</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/duckzmfurs" target= "_blank" rel="noreferrer">duckzmfurs</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/RugBuds" target= "_blank" rel="noreferrer">Rug Buds</a>
-            </li>
-            <li>
-              <a href="https://wizardsdao.com/" target= "_blank" rel="noreferrer">Wizards DAO</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/tinyboysnft_" target= "_blank" rel="noreferrer">tiny boys</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/tinydinosnft" target= "_blank" rel="noreferrer">tiny dinos</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/DressedCat" target= "_blank" rel="noreferrer">Dressed Cat</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/DeadFreaksNFT" target= "_blank" rel="noreferrer">Dead Freaks</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/unofficialmfers" target= "_blank" rel="noreferrer">unofficial mfers</a>
-            </li>
-            <li>
-              <a href="https://www.florinouns.xyz/" target= "_blank" rel="noreferrer">FloriNouns</a>
-            </li>
-            <li>
-              <a href="https://www.kristyglas.com/" target= "_blank" rel="noreferrer">Hyper Cats</a>
-            </li>
-            <li>
-              <a href="https://goblintown.wtf/" target= "_blank" rel="noreferrer">Goblin Town</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/wagdie_eth" target= "_blank" rel="noreferrer">We Are All Going to Die</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/xqstgfx" target= "_blank" rel="noreferrer">exquisite graphics</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/JustMallards" target= "_blank" rel="noreferrer">Just Mallards</a>
-            </li>
-            <li>
-              <a href="https://www.weloveguac.org/" target= "_blank" rel="noreferrer">Buy the Dip</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/goodmindsnft" target= "_blank" rel="noreferrer">Good Minds</a>
-            </li>
-            <li>
-              <a href="https://linktr.ee/mt.chicken" target= "_blank" rel="noreferrer">Mt.Chicken</a>
-            </li>
-          </ul>
-        </section> */}
+
+        <Button button={buttons} filter={filter} />
+        
+          <Item ProjectData={ProjectData}/>
+  
+         
+          
+        </section>
       </main>
 
       <Footer />
