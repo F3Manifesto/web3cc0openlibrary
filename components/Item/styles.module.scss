@@ -52,6 +52,10 @@
     flex-wrap: wrap;
     /* Compensate for excess margin on outer gallery flex items */
     margin: -1rem -1rem;
+
+    @media (max-width: 576px) {
+      display: grid;
+    }
   
   }
   
