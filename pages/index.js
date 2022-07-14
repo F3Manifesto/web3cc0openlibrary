@@ -9,7 +9,7 @@ import Audio from "../components/Audio";
 import Item from "../components/Item/item"
 import { useRouter } from "next/router";
 import Link from "next/link";
-import projects from "./projects"
+import projects from "../projects"
 import Button from "../components/Button"
 import React, { Component }  from 'react';
 
