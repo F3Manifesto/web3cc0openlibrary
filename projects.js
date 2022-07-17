@@ -344,19 +344,27 @@ export default [
       category: "PFP"
     },
     {
-      id: "45",
-      title: "Monfters Club",
-      description: "The genesis NFT collection of Monfter: A NFT social trading platform.",
-      url: "https://www.monfter.com/",
-      image: "projects/monfter.jpeg",
-      category: "PFP"
-    },
-    {
       id: "46",
       title: "MFERZ",
       description: "4200 MFERZ ON THE ETHEREUMZ",
       url: "https://twitter.com/MFERZ69",
       image: "projects/MFERZ.jpeg",
+      category: "PFP"
+    },
+    {
+      id: 72,
+      title: "Mirakai",
+      description: "A collection of 10,000 scrolls to summon heroes in the dungeons of Mirakai.",
+      url: "https://www.officialmirakai.com/",
+      image: "projects/mirakai.jpeg",
+      category: "PFP"
+    },
+    {
+      id: "45",
+      title: "Monfters Club",
+      description: "The genesis NFT collection of Monfter: A NFT social trading platform.",
+      url: "https://www.monfter.com/",
+      image: "projects/monfter.jpeg",
       category: "PFP"
     },
     {

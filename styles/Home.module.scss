@@ -383,4 +383,9 @@
     justify-content: center;
     margin-top: 3rem;
     color: #4e4aff;
+
+    @media (max-width: 576px) {
+      font-size: 8vw;
+      line-height: 6vw;
+    }
 }

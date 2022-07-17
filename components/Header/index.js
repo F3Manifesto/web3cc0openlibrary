@@ -27,6 +27,9 @@ const Header = () => {
         </button>
 
         <div className={styles.menuBar}>
+        <a href="https://f3manifesto.xyz/" className={styles.link} target="_blank" rel="noreferrer">
+            Home Port
+          </a>
         <a href="https://market.f3manifesto.xyz/" className={styles.link} target="_blank" rel="noreferrer">
             Digital Fashion Market
           </a>
@@ -38,9 +41,6 @@ const Header = () => {
           </a>
           <a href="https://themanifest.f3manifesto.xyz/" className={styles.link} target="_blank" rel="noreferrer">
             The Manifest Gallery
-          </a>
-          <a href="https://mypocketempire.xyz/" className={styles.link} target="_blank" rel="noreferrer">
-            My Pocket Empire
           </a>
 
         </div>
