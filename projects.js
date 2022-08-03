@@ -352,7 +352,15 @@ export default [
       category: "PFP"
     },
     {
-      id: 72,
+      id: "76",
+      title: "mfers doin stuff",
+      description: "mfers doin stuff— standing",
+      url: "https://mfersdoinstuff.com/",
+      image: "projects/mfersdoinstuff.jpeg",
+      category: "PFP"
+    },
+    {
+      id: "72",
       title: "Mirakai",
       description: "A collection of 10,000 scrolls to summon heroes in the dungeons of Mirakai.",
       url: "https://www.officialmirakai.com/",
